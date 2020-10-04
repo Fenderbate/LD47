@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scenes/paddle/Paddle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/explosion/Explosion.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/loopsegment/LoopSegment.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/game/Game.cs" type="Script" id=4]
+[ext_resource path="res://scenes/boss/Boss.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/endgamescreen/EndGameScreen.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sprites/VictoryImage.png" type="Texture" id=7]
+[ext_resource path="res://scenes/UI/UI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/hit/Hit.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/game/CameraHolder.cs" type="Script" id=10]
+
+[node name="Game" type="Node2D"]
+position = Vector2( 561.578, 290.745 )
+script = ExtResource( 4 )
+
+[node name="UI" parent="." instance=ExtResource( 8 )]
+
+[node name="Background" type="Polygon2D" parent="."]
+color = Color( 0.0588235, 0.0627451, 0.0941176, 1 )
+polygon = PoolVector2Array( -284.047, -276.888, 305.015, -289.601, 302.896, 292.044, -298.88, 279.33 )
+
+[node name="Victory" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 7 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="CameraHolder" type="Node2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="Camera2D" type="Camera2D" parent="CameraHolder"]
+current = true
+
+[node name="EndGameScreen" parent="." instance=ExtResource( 6 )]
+
+[node name="LoopSegment" parent="." instance=ExtResource( 3 )]
+paddleHolderPath = NodePath("../Paddle/PaddleHolder")
+AngleTargetColor = Color( 0, 1, 0.576471, 1 )
+AngleNoZoneColor = Color( 1, 0.235294, 0, 1 )
+
+[node name="Paddle" parent="." instance=ExtResource( 1 )]
+CircleColor = Color( 1, 1, 1, 1 )
+
+[node name="Boss" parent="." instance=ExtResource( 5 )]
+paddleArea = NodePath("../Paddle/PaddleHolder/PaddleArea")
+
+[node name="Explosion" parent="." instance=ExtResource( 2 )]
+position = Vector2( -234.141, -12.7136 )
+
+[node name="Hit" parent="." instance=ExtResource( 9 )]
+position = Vector2( -227.785, 57.7407 )
+
+[editable path="UI"]
+
+[editable path="LoopSegment"]
+
+[editable path="Paddle"]

@@ -1,5 +1,216 @@
-[gd_scene format=2]
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/menu/Menu.cs" type="Script" id=1]
+[ext_resource path="res://scenes/game/Game.tscn" type="PackedScene" id=2]
+[ext_resource path="res://sprites/LD47Spritesheet.png" type="Texture" id=3]
+[ext_resource path="res://sprites/help1.png" type="Texture" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 0.316246, 96.5173, 63.6838, 31.4827 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 128, 64, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 160, 96, 32 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 3 )
+region = Rect2( 64, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 64, 0, 16, 16 )
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+GameScene = ExtResource( 2 )
+
+[node name="Background" type="ColorRect" parent="."]
+margin_left = -48.0
+margin_top = -28.0
+margin_right = 356.0
+margin_bottom = 289.0
+mouse_filter = 2
+color = Color( 0.0588235, 0.0627451, 0.0941176, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Border" type="ColorRect" parent="."]
+margin_left = 97.0
+margin_top = -30.0
+margin_right = 100.0
+margin_bottom = 275.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuAligner" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainButonsPanel" type="VBoxContainer" parent="MenuAligner"]
+margin_right = 96.0
+margin_bottom = 256.0
+rect_min_size = Vector2( 96, 0 )
+alignment = 1
+
+[node name="Start" type="TextureButton" parent="MenuAligner/MainButonsPanel"]
+margin_top = 76.0
+margin_right = 96.0
+margin_bottom = 108.0
+rect_min_size = Vector2( 64, 32 )
+texture_normal = SubResource( 1 )
+
+[node name="Label" type="Label" parent="MenuAligner/MainButonsPanel/Start"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="TextureButton" parent="MenuAligner/MainButonsPanel"]
+margin_top = 112.0
+margin_right = 96.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 64, 32 )
+texture_normal = SubResource( 2 )
+
+[node name="Label" type="Label" parent="MenuAligner/MainButonsPanel/Options"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "optionssssss"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HowToPlay" type="TextureButton" parent="MenuAligner/MainButonsPanel"]
+margin_top = 148.0
+margin_right = 96.0
+margin_bottom = 180.0
+rect_min_size = Vector2( 64, 32 )
+texture_normal = SubResource( 3 )
+
+[node name="Label" type="Label" parent="MenuAligner/MainButonsPanel/HowToPlay"]
+visible = false
+margin_right = 40.0
+margin_bottom = 14.0
+text = "h2p"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsPanel" type="VBoxContainer" parent="MenuAligner"]
+visible = false
+margin_left = 100.0
+margin_right = 256.0
+margin_bottom = 256.0
+rect_min_size = Vector2( 156, 0 )
+alignment = 1
+
+[node name="Label" type="Label" parent="MenuAligner/OptionsPanel"]
+visible = false
+margin_top = 121.0
+margin_right = 156.0
+margin_bottom = 135.0
+text = "optionsssssssssssssssssssssssss"
+clip_text = true
+
+[node name="ToggleMusic" type="CheckButton" parent="MenuAligner/OptionsPanel"]
+margin_top = 86.0
+margin_right = 156.0
+margin_bottom = 126.0
+pressed = true
+text = "Music"
+align = 1
+
+[node name="ToggleSound" type="CheckButton" parent="MenuAligner/OptionsPanel"]
+margin_top = 130.0
+margin_right = 156.0
+margin_bottom = 170.0
+pressed = true
+text = "Sound"
+align = 1
+
+[node name="HowToPlayPanel" type="VBoxContainer" parent="MenuAligner"]
+margin_left = 100.0
+margin_right = 256.0
+margin_bottom = 256.0
+rect_min_size = Vector2( 156, 0 )
+alignment = 1
+
+[node name="Label" type="Label" parent="MenuAligner/HowToPlayPanel"]
+visible = false
+margin_top = 121.0
+margin_right = 156.0
+margin_bottom = 135.0
+text = "how2playyyyyyyyyyyyyyyyyyyyyyy"
+clip_text = true
+
+[node name="Help" type="TextureRect" parent="MenuAligner/HowToPlayPanel"]
+margin_right = 156.0
+margin_bottom = 256.0
+texture = ExtResource( 4 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuAligner/HowToPlayPanel/Help"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -78.0
+margin_top = -20.0
+margin_right = 78.0
+rect_min_size = Vector2( 0, 20 )
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HelpLeft" type="TextureButton" parent="MenuAligner/HowToPlayPanel/Help/HBoxContainer"]
+margin_left = 43.0
+margin_right = 59.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+texture_normal = SubResource( 5 )
+expand = true
+stretch_mode = 3
+
+[node name="Control" type="Control" parent="MenuAligner/HowToPlayPanel/Help/HBoxContainer"]
+margin_left = 63.0
+margin_right = 93.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 30, 0 )
+
+[node name="HelpRight" type="TextureButton" parent="MenuAligner/HowToPlayPanel/Help/HBoxContainer"]
+margin_left = 97.0
+margin_right = 113.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 16, 16 )
+rect_pivot_offset = Vector2( 8, 10 )
+texture_normal = SubResource( 4 )
+expand = true
+stretch_mode = 3
+[connection signal="button_down" from="MenuAligner/MainButonsPanel/Start" to="." method="OnStartButtonDown"]
+[connection signal="button_down" from="MenuAligner/MainButonsPanel/Options" to="." method="OnOptionsButtonDown"]
+[connection signal="button_down" from="MenuAligner/MainButonsPanel/HowToPlay" to="." method="OnHowToPlayButtonDown"]
+[connection signal="toggled" from="MenuAligner/OptionsPanel/ToggleMusic" to="." method="OnMusicToggled"]
+[connection signal="toggled" from="MenuAligner/OptionsPanel/ToggleSound" to="." method="OnSoundToggled"]
+[connection signal="button_down" from="MenuAligner/HowToPlayPanel/Help/HBoxContainer/HelpLeft" to="." method="OnHelpLeftDown"]
+[connection signal="button_down" from="MenuAligner/HowToPlayPanel/Help/HBoxContainer/HelpRight" to="." method="OnHelpRightDown"]

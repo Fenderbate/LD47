@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/endgamescreen/EndGameScreen.cs" type="Script" id=1]
+[ext_resource path="res://sprites/LD47Spritesheet.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 176, 97, 48, 23 )
+
+[node name="EndGameScreen" type="Node2D"]
+z_index = 10
+script = ExtResource( 1 )
+WinColor = Color( 0.521569, 1, 0, 1 )
+LoseColor = Color( 1, 0.211765, 0, 1 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="WinSprite" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+scale = Vector2( 2, 2 )
+z_index = 20
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 128, 96, 48, 24 )
+
+[node name="LoseSprite" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+scale = Vector2( 2, 2 )
+z_index = 20
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 128, 120, 48, 24 )
+
+[node name="RetryButton" type="TextureButton" parent="LoseSprite"]
+margin_left = -31.7716
+margin_top = 38.7546
+margin_right = 32.2284
+margin_bottom = 54.7546
+rect_min_size = Vector2( 64, 16 )
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 32, 8 )
+texture_normal = SubResource( 1 )
+expand = true
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="LoseSprite/RetryButton"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Retry"
+align = 1
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_down" from="LoseSprite/RetryButton" to="." method="OnRetryButtonDown"]

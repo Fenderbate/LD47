@@ -3,19 +3,32 @@ using System;
 
 public class SignalManager : Node
 {
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
+    [Signal]
+    public delegate void Defeat();
 
-    // Called when the node enters the scene tree for the first time.
-    public override void _Ready()
-    {
-        
-    }
+    [Signal]
+    public delegate void Victory();
 
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
+    [Signal]
+    public delegate void Retry();
+
+    [Signal]
+    public delegate void TargetAreaLeft();
+
+    [Signal]
+    public delegate void TargetAreaEntered();
+
+    [Signal]
+    public delegate void BossHurt();
+
+    [Signal]
+    public delegate void Shake();
+
+    [Signal]
+    public delegate void BigShake();
+
+    [Signal]
+    public delegate void ShakeDone();
+
+    
 }

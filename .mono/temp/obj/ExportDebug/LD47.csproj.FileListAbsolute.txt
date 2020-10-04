@@ -1,0 +1,8 @@
+D:\Godot\projects\3.2.3 mono\LD47\.mono\temp\bin\ExportDebug\LD47.dll
+D:\Godot\projects\3.2.3 mono\LD47\.mono\temp\bin\ExportDebug\LD47.pdb
+D:\Godot\projects\3.2.3 mono\LD47\.mono\temp\obj\ExportDebug\LD47.csprojAssemblyReference.cache
+D:\Godot\projects\3.2.3 mono\LD47\.mono\temp\obj\ExportDebug\LD47.AssemblyInfoInputs.cache
+D:\Godot\projects\3.2.3 mono\LD47\.mono\temp\obj\ExportDebug\LD47.AssemblyInfo.cs
+D:\Godot\projects\3.2.3 mono\LD47\.mono\temp\obj\ExportDebug\LD47.csproj.CoreCompileInputs.cache
+D:\Godot\projects\3.2.3 mono\LD47\.mono\temp\obj\ExportDebug\LD47.dll
+D:\Godot\projects\3.2.3 mono\LD47\.mono\temp\obj\ExportDebug\LD47.pdb

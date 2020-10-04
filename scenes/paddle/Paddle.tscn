@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/paddle/Paddle.cs" type="Script" id=1]
+[ext_resource path="res://sprites/LD47Spritesheet.png" type="Texture" id=2]
+
+[node name="Paddle" type="Node2D" groups=[
+"Paddle",
+]]
+script = ExtResource( 1 )
+
+[node name="MouseFollower" type="Node2D" parent="."]
+
+[node name="PaddleHolder" type="Node2D" parent="."]
+
+[node name="PaddleArea" type="Area2D" parent="PaddleHolder" groups=[
+"Paddle",
+]]
+position = Vector2( 110, 0 )
+rotation = -3.14159
+
+[node name="PaddleSprite" type="Sprite" parent="PaddleHolder/PaddleArea"]
+position = Vector2( -4, 0 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 163, 13, 16, 38 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="PaddleHolder/PaddleArea"]
+polygon = PoolVector2Array( 4, 0, 3, -8, -6, -19, -12, -18, 0, -6, 0, 6, -12, 17, -6, 19, 3, 8 )
+
+[node name="RayCast2D" type="RayCast2D" parent="PaddleHolder/PaddleArea"]
+cast_to = Vector2( 50, 0 )
+
+[node name="Position2D" type="Position2D" parent="PaddleHolder/PaddleArea"]
+position = Vector2( -10, 4.44253e-05 )
+
+[node name="PlayerSprite" type="Sprite" parent="PaddleHolder/PaddleArea/Position2D"]
+texture = ExtResource( 2 )
+offset = Vector2( -2, 0 )
+region_enabled = true
+region_rect = Rect2( 213, 26, 18, 12 )
+[connection signal="area_entered" from="PaddleHolder/PaddleArea" to="." method="OnPaddleAreaEntered"]

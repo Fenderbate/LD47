@@ -41,7 +41,7 @@ public class Paddle : Node2D
     {
         mouseFollower.LookAt(GetGlobalMousePosition());
 
-        GetNode<Sprite>("PaddleHolder/PaddleArea/Position2D/PlayerSprite").LookAt(GlobalPosition);
+        GetNode<Sprite>("PaddleHolder/Position2D/PlayerSprite").LookAt(GlobalPosition);
         
         paddleArea.LookAt(GetGlobalMousePosition());
 

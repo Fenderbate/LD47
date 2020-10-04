@@ -28,7 +28,7 @@ public class Game : Node2D
     private void OnTargetAreaLeft()
     {
         GetNode<Tween>("Tween").StopAll();
-        GetNode<Tween>("Tween").InterpolateProperty(GetNode<Polygon2D>("Background"),"color",GetNode<Polygon2D>("Background").Color,badColor,0.2f);
+        GetNode<Tween>("Tween").InterpolateProperty(GetNode<Polygon2D>("Background"),"color",GetNode<Polygon2D>("Background").Color,badColor,3f);
         GetNode<Tween>("Tween").Start();
         //GetNode<Polygon2D>("Background").Color = badColor;
     }
